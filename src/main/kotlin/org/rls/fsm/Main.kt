@@ -9,21 +9,23 @@ sealed class State {
     object S3 : State()
     object S4 : State()
     object S5 : State()
-    object S5p1 : State()
-    object S5p2 : State()
-    object E0 : State()
-    object E1 : State()
-    object E2 : State()
-    object E3 : State()
-    object E4 : State()
-    object A0 : State()
-    object A0p0 : State()
-    object A1 : State()
-    object A1p0 : State()
-    object A2 : State()
-    object A3 : State()
-    object R0 : State()
-    object R1 : State()
+    object S6 : State()
+    object S7 : State()
+    object S8 : State()
+    object S9 : State()
+    object S10 : State()
+    object S11 : State()
+    object S12 : State()
+    object S13 : State()
+    object S14 : State()
+    object S15 : State()
+    object S16 : State()
+    object S17 : State()
+    object S18 : State()
+    object S19 : State()
+    object S20 : State()
+    object S21 : State()
+
 }
 
 sealed class Event {
@@ -45,70 +47,73 @@ sealed class Event {
     object E15 : Event()
     object E16 : Event()
     object E17 : Event()
-    object T0 : Event()
-    object T1 : Event()
-    object T2 : Event()
-    object T3 : Event()
-    object R0 : Event()
-    object R1 : Event()
+    object E18 : Event()
+    object E19 : Event()
+    object E20 : Event()
+    object E21 : Event()
+    object E22 : Event()
+    object E23 : Event()
+    object E24 : Event()
+    object E25 : Event()
+    object E26 : Event()
+    object E27 : Event()
+    object E28 : Event()
 }
 
 sealed class SideEffect {
     object NopEffect : SideEffect()
+    //object LogInit: SideEffect()
+    //object LogConnected: SideEffect()
+    //object LogNoConnected: SideEffect()
+    //object LogShutdown: SideEffect()
+    //object LogNoShutdown: SideEffect()
+    //object LogBluetoothAvailable: SideEffect()
+    //object LogBluetoothNoAvailable: SideEffect()
+    //object LogAttemptConnect: SideEffect()
+    //object LogReconnect: SideEffect()
+
+
+
 }
 
 val groups = mapOf(
     1 to setOf(
-        State.S0, State.S1, State.S2, State.S3, State.S4, State.S5, State.S5p1,
-        State.S5p2, State.E0, State.E1, State.E2, State.E3, State.E4
-    ),
-    2 to setOf(
-        State.A0, State.A0p0
-    ),
-    3 to setOf(
-        State.R0
-    ),
-    4 to setOf(
-        State.R1
-    ),
-    5 to setOf(
-        State.A1, State.A1p0
-    ),
-    6 to setOf(
-        State.A2
-    ),
-    7 to setOf(
-        State.A3
+        State.S0,State.S1, State.S2, State.S3, State.S4, State.S5, State.S6,
+        State.S7, State.S8, State.S9, State.S10, State.S11, State.S12,State.S13,
+        State.S14, State.S15,State.S16, State.S17, State.S18,State.S19, State.S20, State.S21
     )
 )
 
 val transitions = mapOf(
     (State.S0 to Event.E0) to State.S1,
-    (State.S1 to Event.E1) to State.E0,
-    (State.S1 to Event.E4) to State.S2,
-    (State.S2 to Event.R0) to State.R0,
-    (State.S2 to Event.E5) to State.S3,
-    (State.S3 to Event.E6) to State.E2,
-    (State.S3 to Event.E7) to State.S4,
-    (State.S4 to Event.E8) to State.E1,
-    (State.S4 to Event.E11) to State.S5,
-    (State.S5 to Event.E12) to State.S5p1,
-    (State.S5 to Event.E15) to State.S5p2,
-    (State.S5 to Event.R1) to State.R1,
-    (State.S5p1 to Event.E13) to State.E3,
-    (State.S5p2 to Event.E16) to State.E4,
-    (State.E0 to Event.T0) to State.A0,
-    (State.A0 to Event.E2) to State.A0p0,
-    (State.A0p0 to Event.E3) to State.S1,
-    (State.E1 to Event.T1) to State.A1,
-    (State.A1 to Event.E9) to State.A1p0,
-    (State.A1p0 to Event.E10) to State.S4,
-    (State.S5p1 to Event.E13) to State.E3,
-    (State.E3 to Event.T2) to State.A2,
-    (State.A2 to Event.E14) to State.S5,
-    (State.S5p2 to Event.E16) to State.E4,
-    (State.E4 to Event.T3) to State.A3,
-    (State.A3 to Event.E17) to State.S5,
+    (State.S1 to Event.E1) to State.S2,
+    (State.S1 to Event.E6) to State.S5,
+    (State.S2 to Event.E2) to State.S3,
+    (State.S2 to Event.E3) to State.S21,
+    (State.S3 to Event.E4) to State.S4,
+    (State.S4 to Event.E5) to State.S1,
+    (State.S5 to Event.E8) to State.S6,
+    (State.S5 to Event.E7) to State.S7,
+    (State.S7 to Event.E10) to State.S8,
+    (State.S7 to Event.E9) to State.S9,
+    (State.S8 to Event.E11) to State.S21,
+    (State.S9 to Event.E12) to State.S10,
+    (State.S9 to Event.E17) to State.S13,
+    (State.S10 to Event.E13) to State.S21,
+    (State.S10 to Event.E14) to State.S11,
+    (State.S11 to Event.E15) to State.S12,
+    (State.S12 to Event.E16) to State.S9,
+    (State.S13 to Event.E23) to State.S17,
+    (State.S13 to Event.E18) to State.S14,
+    (State.S13 to Event.E28) to State.S20,
+    (State.S14 to Event.E19) to State.S15,
+    (State.S15 to Event.E21) to State.S16,
+    (State.S16 to Event.E22) to State.S13,
+    (State.S15 to Event.E20) to State.S21,
+    (State.S17 to Event.E24) to State.S18,
+    (State.S18 to Event.E26) to State.S19,
+    (State.S19 to Event.E27) to State.S13,
+    (State.S18 to Event.E25) to State.S21,
 )
 
 val activeGroups = mutableSetOf(1)
@@ -123,7 +128,7 @@ fun step(
 ): StateMachine<State, Event, SideEffect> {
 
     val currentState = currentMachine.state
-
+    println("Current state: $currentState")
     activeGroups.add(transitions[currentState to currentEvent]?.let {
         groups.filter { p -> it in p.value }.keys.firstOrNull() ?: 1
     } ?: 1)
@@ -157,13 +162,16 @@ fun walk(
 }
 
 fun main() {
-    val events = listOf(Event.E0, Event.E1, Event.T0, Event.E2, Event.E3, Event.E4, Event.R0)
-
+    val events = listOf(Event.E0,Event.E1,Event.E2,Event.E4,Event.E5,Event.E6,Event.E8) //Test01: Execution reached a satisfied requirement state.
+    //Test02: val events = listOf(Event.E0,Event.E6,Event.E7,Event.E10,Event.E11) //Execution reached an unsatisfied requirement state.
+    //Test03: val events = listOf(Event.E0,Event.E6,Event.E7)//Something wrong happened.
     val fsm = events.fold(build()) { x, y -> walk(x, y) }
-
-    if (fsm.state in setOf(State.R0, State.R1)) {
+    if (fsm.state in setOf(State.S6, State.S20)) {
         println("Execution reached a satisfied requirement state.")
-    } else {
+    } else if (fsm.state in setOf(State.S21)){
+        println("Execution reached an unsatisfied requirement state.")
+    }
+    else {
         println("Something wrong happened.")
     }
 }
